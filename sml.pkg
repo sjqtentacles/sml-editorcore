@@ -1,0 +1,5 @@
+package github.com/sjqtentacles/sml-editorcore
+
+require {
+  github.com/sjqtentacles/sml-unicode
+}

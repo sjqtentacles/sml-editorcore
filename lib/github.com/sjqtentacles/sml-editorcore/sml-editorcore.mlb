@@ -1,0 +1,7 @@
+(* sml-editorcore: public library basis. Re-exports the vendored
+   sml-unicode plus the editorcore sources, so a consumer gets the
+   EditorCore structure. *)
+
+$(SML_LIB)/basis/basis.mlb
+
+sources.mlb
