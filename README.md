@@ -98,6 +98,33 @@ val m' = EditorCore.adjustForInsert (m, 2, 3)
 | `adjustForInsert`, `adjustForDelete` | Recompute marks after an edit. |
 | `newState`, `stateInsert`, `stateDelete`, `stateUndo`, `stateRedo` | Composite `EditorState` operations. |
 
+## Example
+
+`make example` builds and runs [`examples/demo.sml`](examples/demo.sml), which
+drives the piece-table buffer, cursor movement, sticky marks, and the
+combined `EditorState` undo/redo through a short editing session (output is
+byte-identical under MLton and Poly/ML):
+
+```
+EditorCore demo
+buffer after insert   = Hello, there, world!
+buffer after delete   = there, world!
+slice [0,5)           = there
+length                = 13
+cursor pos after 2x moveRight = 2
+cursor pos at line end        = 13
+mark 'anchor' after inserting 5 chars before it = 8
+state after insert = lineXXX one
+line two
+state after delete = lineXXX
+line two
+state after undo   = lineXXX one
+line two
+state after redo   = lineXXX
+line two
+state cursor pos   = 7
+```
+
 ## Dependencies
 
 - [`sml-unicode`](https://github.com/sjqtentacles/sml-unicode) (vendored) --
